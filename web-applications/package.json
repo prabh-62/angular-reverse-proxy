@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start:support": "ng serve --project support-panel --port 4201 --base-href /support/ --deploy-url /support/  --publicHost https://localhost/support/",
-    "start:admin": "ng serve --project admin-dashboard --port 4202 --base-href /admin/ --deploy-url /admin/  --publicHost=https://localhost/admin/",
+    "start:admin": "ng serve --project admin-dashboard --port 4202 --base-href /admin/ --deploy-url /admin/  --publicHost https://localhost/admin/",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
