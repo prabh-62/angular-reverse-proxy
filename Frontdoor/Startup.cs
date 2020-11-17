@@ -41,21 +41,6 @@ namespace Frontdoor
                 Match = { Path = $"{app.Prefix.TrimEnd('/')}/{{**catch-all}}" },
             }).ToList();
 
-            // Only in development
-            if (true)
-            {
-                var uiLiveReloadRoutes = webApplications.Select(app => new ProxyRoute
-                {
-                    RouteId = $"{app.Name}LiveReloadRoute",
-                    ClusterId = app.Name,
-                    Match = { Path = $"{app.Prefix.TrimEnd('/')}/sockjs-node/{{*remainder}}" },
-                    Transforms = new List<IDictionary<string, string>> {
-                    new Dictionary<string, string> {{"PathPattern", "/sockjs-node/{remainder}"}}
-                }
-                }).ToList();
-                proxyRoutes.AddRange(uiLiveReloadRoutes);
-            }
-
             var clusters = webApplications.Select(app => new Cluster
             {
                 Id = app.Name,
@@ -66,7 +51,6 @@ namespace Frontdoor
 
             services.AddReverseProxy().LoadFromMemory(proxyRoutes, clusters.ToList());
         }
-
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

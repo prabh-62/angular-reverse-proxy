@@ -6,13 +6,13 @@ Requirements
 
 ```bash
 ❯ dotnet --version
-3.1.403
+5.0.100
 ```
 
 ```bash
 ❯ cd Frontdoor
 ❯ dotnet dev-certs https --trust
-❯ sudo dotnet run #(or just dotnet run if on windows)
+❯ dotnet run
 ```
 
 ## Client - Angular
@@ -21,7 +21,7 @@ Requirements
 
 ```bash
 ❯ node --version
-v15.0.1
+v15.2.0
 ❯ yarn --version
 1.22.10
 ```
